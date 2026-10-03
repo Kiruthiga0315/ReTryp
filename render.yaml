@@ -1,0 +1,75 @@
+# Render blueprint for the ReTryp backend.
+#
+# Deploy: connect this repository, then apply this blueprint. Set the secret
+# values in the Render dashboard; they are marked sync: false so nothing
+# sensitive is stored in version control.
+#
+# DATABASE_URL is optional. Without it the service uses SQLite on the attached
+# persistent disk. For a shared deployment, attach a PostgreSQL instance and
+# set DATABASE_URL to its internal connection string.
+
+services:
+  - type: web
+    name: retryp-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: starter
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: retryp-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:////app/data/retryp.db
+      - key: COOKIE_SECURE
+        value: "true"
+      # Set this to the deployed frontend origin, for example
+      # https://retryp.vercel.app
+      - key: CORS_ORIGINS
+        sync: false
+      - key: SESSION_TTL_HOURS
+        value: "336"
+      # Optional integrations. Leave unset to run on the bundled reference and
+      # timetable datasets; a source that cannot answer is shown as unavailable.
+      - key: FLIGHT_PROVIDER
+        value: ""
+      - key: AERODATABOX_API_KEY
+        sync: false
+      - key: AVIATIONSTACK_API_KEY
+        sync: false
+      - key: FLIGHTAWARE_API_KEY
+        sync: false
+      - key: AMADEUS_CLIENT_ID
+        sync: false
+      - key: AMADEUS_CLIENT_SECRET
+        sync: false
+      - key: OPENSKY_CLIENT_ID
+        sync: false
+      - key: OPENSKY_CLIENT_SECRET
+        sync: false
+      - key: TRANSITLAND_API_KEY
+        sync: false
+      - key: MOBILITY_DATABASE_API_KEY
+        sync: false
+      - key: NOMINATIM_USER_AGENT
+        sync: false
+      - key: LLM_PROVIDER
+        sync: false
+      - key: LLM_MODEL
+        value: gemini-2.5-flash-lite
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_BASE_URL
+        sync: false
+
+# Optional managed database, uncomment and set DATABASE_URL to its connection
+# string if you want PostgreSQL instead of SQLite.
+# databases:
+#   - name: retryp-db
+#     plan: basic-256mb
+#     postgresMajorVersion: "16"

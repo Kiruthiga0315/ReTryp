@@ -1,0 +1,128 @@
+/* ReTryp design tokens.
+   One neutral palette, one accent, one sans-serif family, an 8px spacing scale. */
+
+:root {
+  /* --- type ------------------------------------------------------- */
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 27px;
+  --text-3xl: 33px;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* --- spacing: 8px scale ----------------------------------------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 40px;
+  --s-8: 48px;
+  --s-9: 64px;
+
+  /* EDITORIAL / NON-AI LOOK: Sharp corners, no soft bubbly radius */
+  --radius-sm: 0px;
+  --radius: 2px;
+  --radius-lg: 4px;
+
+  --border-width: 1px;
+
+  /* --- neutrals --------------------------------------------------- */
+  --ink-900: #0a0a0a;
+  --ink-800: #171717;
+  --ink-700: #262626;
+  --ink-600: #404040;
+  --ink-500: #737373;
+  --ink-400: #a3a3a3;
+  --ink-300: #d4d4d4;
+  --ink-200: #e5e5e5;
+  --ink-150: #f0f0f0;
+  --ink-100: #f5f5f5;
+  --ink-50: #fafafa;
+  --white: #ffffff;
+
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--ink-500);
+  --text-inverse: var(--white);
+
+  --surface-page: var(--ink-50);
+  --surface-card: var(--white);
+  --surface-sunken: var(--ink-100);
+  --surface-raised: var(--white);
+  --surface-inset: var(--ink-100);
+  --border: var(--ink-200);
+  --border-strong: var(--ink-900);
+  --border-subtle: var(--ink-200);
+
+  /* --- accent: stark editorial black/charcoal instead of generic tech blue/teal --- */
+  --accent-700: #000000;
+  --accent-600: #171717;
+  --accent-500: #262626;
+  --accent-100: #e5e5e5;
+  --accent-50: #f5f5f5;
+  --accent: var(--accent-600);
+  --accent-hover: var(--accent-700);
+
+  /* --- status: colour is never used alone ------------------------- */
+  --status-ontime: #16794c;
+  --status-ontime-bg: #e8f5ee;
+  --status-ontime-border: #bfe0cd;
+
+  --status-risk: #8a5a00;
+  --status-risk-bg: #fdf3e3;
+  --status-risk-border: #edd6a8;
+
+  --status-disrupted: #a8231c;
+  --status-disrupted-bg: #fceceb;
+  --status-disrupted-border: #f0c3c0;
+
+  --status-recovery: #1a5490;
+  --status-recovery-bg: #e9f1fa;
+  --status-recovery-border: #c2d7ee;
+
+  --status-done: #55606e;
+  --status-done-bg: #eef0f3;
+  --status-done-border: #d3d8de;
+
+  --status-info: #3f4d5c;
+  --status-info-bg: var(--ink-100);
+  --status-info-border: var(--ink-200);
+
+  /* --- provenance badges ------------------------------------------ */
+  --prov-live: #14603c;
+  --prov-live-bg: #e6f4ec;
+  --prov-cached: #6b5310;
+  --prov-cached-bg: #fbf3dd;
+  --prov-reference: #1c4b73;
+  --prov-reference-bg: #e7f0f8;
+  --prov-unavailable: #3d4a5a;
+  --prov-unavailable-bg: #eaeef3;
+  --prov-simulated: #6a3d8f;
+  --prov-simulated-bg: #f2ecf8;
+
+  /* EDITORIAL / NON-AI LOOK: Remove floaty AI drop shadows, replace with crisp borders */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  --focus-ring: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--accent-500);
+
+  --sidebar-width: 236px;
+  --sidebar-width-collapsed: 60px;
+  --header-height: 56px;
+}

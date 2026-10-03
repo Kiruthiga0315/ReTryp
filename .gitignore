@@ -1,0 +1,39 @@
+# --- Python -----------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# --- databases --------------------------------------------------------
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# --- secrets and local config ----------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- provider caches --------------------------------------------------
+# OpenStreetMap/Overpass responses cached to disk, rebuilt on demand.
+backend/app/data/cache/
+
+# --- node / frontend --------------------------------------------------
+node_modules/
+dist/
+.vite/
+coverage/
+
+# --- editors / OS -----------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# TypeScript incremental build info
+*.tsbuildinfo
